@@ -8,8 +8,8 @@ class LoginController {
             redirect(controller:"Chat", action:"index")
             return
         } else {
-           signIn()
-           return
+            signIn()
+            return
         }
         
     }
@@ -31,13 +31,35 @@ class LoginController {
         session.user = null;
         render(view:"signIn")
     }
-    def signUp(){
+    def signUp(){        
         if(session.user){
             redirect(controller:"Chat", action:"mainChat")
             return            
-        } else {            
-            render(view:"signUp")
-            return
+        } else {
+            println("No hay sesion, se procede al registro")
+            if(!(params?.password || params?.username)){
+                //render("Se redirecciona al registro")
+                render(view:"signUp", model:[:])
+            } else {
+                println("Hay parametros, se intenta el registro o si no ser redirecciona con los mensajes de error")
+                try{
+                    User userToBeSaved = new User(params)
+                    if(userToBeSaved.save(flush:true,failOnError:true)){
+                        session.user = userToBeSaved
+                        redirect(Controller:"Chat",action:"mainChat")
+                        //render("Se guardó el usuario!")
+                        return
+                    } else {
+                        //render("Error al guardar el usuario")
+                        render(view:"signUp",model:[user:userToBeSaved])
+                        return
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                    render("${e.getLocalizedMessage()}")
+                    return
+                }
+            }                     
         }
         
     }

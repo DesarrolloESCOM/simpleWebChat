@@ -8,13 +8,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">		                
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">		                                 
                 <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
                 <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-theme.css')}" type="text/css">
                 <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery-ui-1.10.3.custom.min.css')}" type="text/css">                
                 <link rel="stylesheet" href="${resource(dir: 'css', file: 'mainStyles.css')}" type="text/css">
                 <script src="${resource(dir: 'js', file: 'jquery1-10-1.js')}" type="text/javascript"></script>
-                <script src="${resource(dir: 'js', file: 'jquery-ui-1.10.3.custom.min.js')}" type="text/javascript"></script>
+                <!--<script src="${resource(dir: 'js', file: 'jquery-ui-1.10.3.custom.min.js')}" type="text/javascript"></script>-->
+                <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">                
+                <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
                 <script src="${resource(dir: 'js', file: 'functions.js')}" type="text/javascript"></script>
 		<g:layoutHead/>
 		<r:layoutResources />

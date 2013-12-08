@@ -6,8 +6,8 @@ class SimpleFile {
     String type
     static constraints = {
         idFile(nullable:true, blank:true)        
-        nameOfFile(blank:false, size:0..500)
-        type(blank:false,size:0..200,unique:true)
+        nameOfFile(blank:false, size:0..500,unique:true)
+        type(blank:false,size:0..200)
     }
     static mapping = {
         version false

@@ -11,37 +11,45 @@ root {
 }
 .tiny{
     text-align: right;
-    font-size: 10px;
-    color:gray;
+    font-size: 7px;
+    color:gray;   
+    float:right;
 }
 
-#chat,#mainContent{
+#chat{
     width:100%;    
-    float:left;
-    margin: 0% 0% 10% 0%;
+    float:left;    
     position:relative;
-    height: 80%;
+    height: 35%;
 }
 #textPanel{
-    height:60%;
-    display:block
+    height:35%;
+    display:block;    
 }
 #chatLog{
-    height:80%;
+    height:35%;
     overflow-x: hidden;
     overflow-y: scroll;
     display:block;
 }
+#filePanel{
+    height: 200px;    
+    width: 400px; 
+    padding: 0.5em; float: left; margin: 10px 10px 10px 0; 
+}
 
+#preview { width: 200px; height: 200px; padding: 0.5em; float: left; margin: 10px; }
 #info{
-    width:20%;
-    display:inline-block;
+    width:38%;
+    height: 600px;
+    display:block;
     float:left;
 
 }
 #files{
-    width:30%;
-    display:inline-block;
+    width:400px;
+    height: 350px;
+    display:block;
     float:left;
 
 }
@@ -52,7 +60,7 @@ root {
 #chatContent{
     text-align: left;    
     float:left;    
-    height: 80%;
+    height: 60%;
     width: 60%;
     margin-left: 2%;        
 }
@@ -60,13 +68,21 @@ root {
     width: 30;
     text-align: left;
     margin:10% 35% 10% 35%;    
-}
+} 
 body{
-    background-color: gainsboro;
+    background-color: gainsboro;    
 }
-.centerContent{
-    margin:0 30% 0 30%;
+content{
+    color:black;
+    font-size: x-small;
 }
 #successBanner{
     position: fixed;
+}
+.username{
+    color: cadetblue;
+    font-weight: bold;
+}
+.chatBlock{
+    display:block;
 }

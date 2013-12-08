@@ -3,14 +3,21 @@
   <head>
     <meta name="layout" content="main"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Simple Web Chat - [IPN-ESCOM]</title>		
+    <title>Simple Web Chat - [IPN-ESCOM]</title>		    
   </head>
   <body class="mainWindow">    
-    <div id="successBanner" class="alert alert-success">
-      <h3>Bienvenido ${session.user.username}!</h3>
-      <small><i>Cerrar</i></small>
+    <div id="dialog-form" title="Subir un nuevo archivo">
+      <p class="validateTips">Elige un archivo a subir</p>
+      <form action="upload" method="post" id="fileUploader" enctype="multipart/form-data" target="fileResponseReceiver">
+        <input type="hidden" value="${session.user.idUser}" name="idUser" id="idUser"/>
+        <input type="file" name="file">        
+      </form>       
+      <center>
+        <iframe id="fileResponseReceiver" name="fileResponseReceiver" width="100%" height="20px" frameborder="2" scrolling="yes" src=""></iframe>
+      </center>      
     </div>
-    <input type="hidden" value="${session.user.idUser}" name="idUser" id="idUser"/>
+    <div id="successBanner" title="Bienvenido ${session.user.username}!">      
+    </div>    
     <div class="container" id="mainContent">
       <div id="chat" >
         <div id="chatContent" class="panel panel-primary">
@@ -26,26 +33,26 @@
             </div>
             <div id="rightPanel">
               <button id="sendMessage" class="btn btn-success" disabled="true">Enviar</button>
+              <button id="openUploadDialog" class="btn btn-warning">Subir un archivo</button>
             </div>
           </div>
         </div>
-        <div id="info" class="panel panel-primary">
-          <div class="panel-heading">
+        <div id="info">
+          <div>
             <h3 class="panel-title">Archivos Recientes</h3>
             <div id="filePanel">
               ¡Ups! No hay archivos a&uacute;n
-            </div>
+            </div>            
           </div>
-        </div>
-        <div id="files" class="panel panel-warning">
-          <div class="panel-heading">
+          <div>
             <h3 class="panel-title">Vista Previa</h3>
             <div id="preview">
               Arrastra la liga para ver el contenido deseado.
             </div>
           </div>
-        </div>      
+        </div>
+        
       </div> 
-    </div>
+    </div>    
   </body>
 </html>

@@ -29,23 +29,30 @@ class ChatService {
         return response.reverse();
     }
     def getPrettyFileLog(){
-        //def session = sessionFactory.getCurrentSession()
-        //def response = 
         /*
-         *Date createdDate
-        String userName
-        String content
+         *String username
+        Date uploadedDate
+        String nameofFile
+        String ext
          **/
-        /*def response = session.createQuery("select"+
-                                 " chat.createdDate as createdDate,"+
-                                 " user.username as userName,"+
-                                 " chat.content as content"+
-                                 " from ChatContent chat, User user "+
-                                 " where chat.idUser = user.idUser and chat.createdDate <= :fechaActual order by chat.createdDate DESC")
+        def session = sessionFactory.getCurrentSession()
+        def response = session.createQuery("select "+
+                                        " sFile.nameOfFile as nameofFile,"+
+                                        " user.username as username"+
+                                        " from"+
+                                        " UploadedFile uFile,"+
+                                        " SimpleFile sFile,"+
+                                        " User user"+
+                                        " where"+
+                                        " uFile.idFile = sFile.idFile"+
+                                        " and"+
+                                        " uFile.idUser = user.idUser"+
+                                        " and uFile.createdDate <= :fechaActual"+
+                                        " order by uFile.createdDate DESC")
         .setParameter("fechaActual",new Date())
         .setMaxResults(10)
         .setResultTransformer(Transformers.aliasToBean(PrettyFileLog.class))
         .list();
-        return response.reverse();*/
+        return response.reverse();
     }
 }
