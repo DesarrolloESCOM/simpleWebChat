@@ -32,9 +32,9 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://127.10.196.130:3306/simpleWebChat"
-            username="adminZRykHIv"
-            password="YGrtgt1_Vpeh"
+            url = "jdbc:mysql://127.2.57.2:3306/aplicacionesred"
+            username="adminrc62Y8j"
+            password="mAv6dADRslkN"
             properties {
                maxActive = -1
                minEvictableIdleTimeMillis=1800000
