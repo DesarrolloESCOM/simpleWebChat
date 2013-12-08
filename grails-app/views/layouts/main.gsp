@@ -14,6 +14,7 @@
                 <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery-ui-1.10.3.custom.min.css')}" type="text/css">                
                 <link rel="stylesheet" href="${resource(dir: 'css', file: 'mainStyles.css')}" type="text/css">
                 <script src="${resource(dir: 'js', file: 'jquery1-10-1.js')}" type="text/javascript"></script>
+                <script src="${resource(dir: 'js', file: 'jquery-cookie.js')}" type="text/javascript"></script>
                 <!--<script src="${resource(dir: 'js', file: 'jquery-ui-1.10.3.custom.min.js')}" type="text/javascript"></script>-->
                 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">                
                 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>

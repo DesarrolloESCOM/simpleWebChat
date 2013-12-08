@@ -20,31 +20,45 @@ root {
     width:100%;    
     float:left;    
     position:relative;
-    height: 35%;
+    height: 100%;
 }
 #textPanel{
-    height:35%;
+    height:100%;
     display:block;    
 }
 #chatLog{
-    height:35%;
-    overflow-x: hidden;
+    height: auto;
+    height:550px;
+    /*overflow-x: hidden;*/
     overflow-y: scroll;
     display:block;
 }
 #filePanel{
-    height: 200px;    
-    width: 400px; 
+    height: 250px;    
+    width: 100%; 
     padding: 0.5em; float: left; margin: 10px 10px 10px 0; 
+    background-color:whitesmoke;
 }
 
-#preview { width: 200px; height: 200px; padding: 0.5em; float: left; margin: 10px; }
+#preview {
+    width: 100%; 
+    height: 50px; 
+    float: left; 
+    background-color:whitesmoke;
+    border: black dotted thin;
+    word-wrap:break-word;
+}
+#previewContent{
+    width: 100%;
+    max-width:100%; 
+    background-color: lightgoldenrodyellow;    
+    display: block;
+}
 #info{
     width:38%;
     height: 600px;
     display:block;
     float:left;
-
 }
 #files{
     width:400px;
@@ -56,13 +70,15 @@ root {
 #leftPanel,#rightPanel{
     float:left;
     display:inline-block;
+    width:50%;
+    height: 25%;
 }
 #chatContent{
     text-align: left;    
     float:left;    
-    height: 60%;
+    height: 80%;
     width: 60%;
-    margin-left: 2%;        
+    margin-left: 2%;
 }
 #form{
     width: 30;
@@ -85,4 +101,19 @@ content{
 }
 .chatBlock{
     display:block;
+}
+.imagePreview{
+    width:100%;
+    max-width:350px;
+    height: 250px;
+    max-height: 250px;
+    margin: 5% 20% 20% 5%;
+}
+#mainContent{
+    width: 96%;
+    height: 90%;
+    margin: 0 4% 10% 4%;
+}
+#textArea{
+    display: block;
 }

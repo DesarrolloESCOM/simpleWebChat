@@ -13,7 +13,7 @@
         <input type="file" name="file">        
       </form>       
       <center>
-        <iframe id="fileResponseReceiver" name="fileResponseReceiver" width="100%" height="20px" frameborder="2" scrolling="yes" src=""></iframe>
+        <iframe id="fileResponseReceiver" name="fileResponseReceiver" width="100%" height="100px" scrolling="no" src=""></iframe>
       </center>      
     </div>
     <div id="successBanner" title="Bienvenido ${session.user.username}!">      
@@ -27,31 +27,38 @@
           <div id="textPanel">
             <div id="chatLog" >            
             </div>
-            <hr>
-            <div id="leftPanel">
-              <input class="form-control" placeholder="Escribe lo que deseas expresar!" type="text" id="message"/>
-            </div>
-            <div id="rightPanel">
-              <button id="sendMessage" class="btn btn-success" disabled="true">Enviar</button>
-              <button id="openUploadDialog" class="btn btn-warning">Subir un archivo</button>
+            <div id="textArea">
+              <div id="leftPanel">
+                <input class="form-control" placeholder="Escribe lo que deseas expresar!" type="text" id="message" width="50%"/>
+              </div>
+              <div id="rightPanel">
+                <button id="sendMessage" class="btn btn-success" disabled="true">Enviar</button>
+                <button id="openUploadDialog" class="btn btn-warning">Subir un archivo</button>
+                <button id="closeSession" class="btn btn-warning" id="logoutTrigger">Salir</button>
+                <form action="../login/logout" method="POST" id="logoutForm">
+                <form>                
+              </div>
             </div>
           </div>
         </div>
         <div id="info">
-          <div>
-            <h3 class="panel-title">Archivos Recientes</h3>
-            <div id="filePanel">
-              ¡Ups! No hay archivos a&uacute;n
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Archivos Recientes</h3>
+            </div>            
+            <div id="filePanel" class="panel-body">
             </div>            
           </div>
-          <div>
-            <h3 class="panel-title">Vista Previa</h3>
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title" id="titleReceiver">Vista Previa</h3>
+            </div>
             <div id="preview">
               Arrastra la liga para ver el contenido deseado.
             </div>
+            <div id="previewContent"></div>
           </div>
         </div>
-        
       </div> 
     </div>    
   </body>

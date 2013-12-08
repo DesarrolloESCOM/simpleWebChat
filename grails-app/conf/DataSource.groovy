@@ -32,7 +32,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://127.10.196.130:3306/escom"
+            url = "jdbc:mysql://127.10.196.130:3306/simpleWebChat"
             username="adminZRykHIv"
             password="YGrtgt1_Vpeh"
             properties {

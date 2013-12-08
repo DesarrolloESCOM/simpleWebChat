@@ -32,15 +32,20 @@ class ChatController {
             render("El archivo no puede ser vacio!")
             return
         }
+        String nombreOriginal = f.getOriginalFilename()
+        def splittedName = (nombreOriginal).split("\\.");
         String nombreArchivo = "${params.idUser}"+"_"+"${format.format(now)}"+"_"+f.getOriginalFilename()
+        nombreArchivo = nombreArchivo.encodeAsMD5();
+        int maximo = (nombreArchivo.length() > 200) ? 195 : nombreArchivo.length();
+        nombreArchivo = nombreArchivo.substring(0,maximo)+"."+splittedName[splittedName.size()-1];
         String ruta = servletContext.getRealPath('files/')
-        println("RUTA "+ruta);
         //Se almacena el archivo
         f.transferTo(new File(ruta+"/"+nombreArchivo))
         //se guarda en la base
         SimpleFile file = new SimpleFile()
-        file.nameOfFile = nombreArchivo
         file.type = f.contentType
+        file.nameOfFile = nombreArchivo 
+
         try{
             file.save(flush:true,failOnError:true)//
             //Se guarda el objeto, por lo que se obtiene su persistente
@@ -53,21 +58,33 @@ class ChatController {
             fileLine.idUser = Long.parseLong(params.idUser)
             fileLine.content = "Ha subido el archivo <b><i>"+file.nameOfFile+"</i></b>"
             fileLine.save(flush:true,failOnError:true)
-            response.sendError(200, 'Done') 
             render("Archivo subido exitosamente ");
+            return
         }catch(Exception e){
             //response(e.getLocalizedMessage())
             render("Ocurrio un error intente m&aacute;s tarde");
+            return
         }                
     }
     def getfileLog(){
-        def lastContent = ChatService.getPrettyFileLog()                
-        render([fileResponse:lastContent] as JSON)
+        def lastContent = ChatService.getPrettyFileLog()
+        if(lastContent.size()>0){
+            render([fileResponse:lastContent] as JSON)
+            return
+        } else {
+            response.status = 404;
+            render("Ups, a&uacute;n no hay archivos!")
+            return
+        }
+
     }
     def mainChat(){
         render(view: "mainChat", model: [message: "OK"])
-        //render(view:"mainChat")
         return
-        //render(view:"mainChat")
+    }
+    def getTypeOfFile(){
+        SimpleFile simple = SimpleFile.findByNameOfFile(params?.nameOfFile)
+        String type = simple.type
+        render(type)        
     }
 }

@@ -23,7 +23,7 @@ class ChatService {
                                  " from ChatContent chat, User user "+
                                  " where chat.idUser = user.idUser and chat.createdDate <= :fechaActual order by chat.createdDate DESC")
         .setParameter("fechaActual",new Date())
-        .setMaxResults(10)
+        .setMaxResults(100)
         .setResultTransformer(Transformers.aliasToBean(PrettyChatContainer.class))
         .list();
         return response.reverse();
