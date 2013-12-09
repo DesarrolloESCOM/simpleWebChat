@@ -104,9 +104,9 @@ $(document).ready(function() {
     setInterval(function() {
         getChatLog();
     }, 350);
-    setTimeout(function() {
+    setInterval(function() {
         getFileLog();
-    }, 350);
+    }, 5000);
     if (!valorCookie) {
         $("#successBanner").dialog({
             autoOpen: valorCookie,
